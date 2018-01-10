@@ -2,6 +2,7 @@ import config
 import telebot
 import os
 import socket
+import psycopg2
 import re
 from telebot import types
 
