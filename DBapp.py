@@ -1,9 +1,9 @@
 import psycopg2
+import os
 
-conn = psycopg2.connect("dbname='dcqsh49qsmmirk'"
-                        "user='gdwjlbvsahbyvm'"
-                        "password='69a4de3f83def198fe16d229ffe0c21c4af205b41307d8fc39d61a18c8b406a9'"
-                        "host='ec2-107-21-95-70.compute-1.amazonaws.com'")
+conn = psycopg2.connect("postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
+
+
 
 
 def select_user_id(user_id):
