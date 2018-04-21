@@ -1,5 +1,4 @@
 import psycopg2
-
 import config
 import telebot
 import os
@@ -25,7 +24,7 @@ cancel = None
 
 flag = False
 
-nameProd = None
+nameSubcategory = None
 scoreProd = None
 
 drinks_canceled = None
@@ -97,7 +96,7 @@ def resetted():
     global total
     global cancel
     global old_keyboard_state
-    global nameProd
+    global nameSubcategory
     global scoreProd
     global drinks_canceled
     global global_drinks
@@ -106,7 +105,7 @@ def resetted():
     total = None
     cancel = None
     old_keyboard_state = None
-    nameProd = None
+    nameSubcategory = None
     scoreProd = None
     drinks_canceled = None
     global_drinks = None
@@ -237,10 +236,15 @@ def keyboard1(message):
 
     if message.text == "no" or old_keyboard_state == 150:
         print("NO")
-        keyboard2 = types.InlineKeyboardMarkup()
-        keyboard2.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in cancel])
-        bot.send_message(message.chat.id, 'Please score some drinks you have not seen', reply_markup=keyboard2)
-        state = 150
+        if cancel != []:
+            keyboard2 = types.InlineKeyboardMarkup()
+            keyboard2.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in cancel])
+            bot.send_message(message.chat.id, 'Please score some drinks you have not seen', reply_markup=keyboard2)
+            state = 150
+        else:
+            bot.send_message(message.chat.id, "It was nice to talk with you")
+            state = 8
+            reset_condition(message)
 
     else:
         keyboard = types.InlineKeyboardMarkup()
@@ -257,8 +261,8 @@ def inline(c):
     global state
     global total
 
-    global nameProd
-    nameProd = c.data
+    global nameSubcategory
+    nameSubcategory = c.data
 
     total.remove(c.data)
     print("here")
@@ -274,8 +278,8 @@ def inline(c):
     global state
     global cancel
     global old_keyboard_state
-    global nameProd
-    nameProd = c.data
+    global nameSubcategory
+    nameSubcategory = c.data
 
     cancel.remove(c.data)
     print("here")
@@ -289,40 +293,49 @@ def inline(c):
 @bot.message_handler(func=lambda message:  state == 122)
 def score(message):
     global state
-    global nameProd
+    global nameSubcategory
     global scoreProd
     global user_id
     global old_keyboard_state
     global global_products_categories
     scoreProd = message.text
-
+    flag = True
     print(state)
     if message.text.isdecimal():
         state = 200
-        print("name =  " + nameProd)
+        print("name =  " + nameSubcategory)
         print("score = " + message.text)
-        subcategory_drink = DBapp.select_subcategory_from_subcategory_table(nameProd)
+        select_result = DBapp.select_category_and_subcategory_from_subcategory_table(nameSubcategory)
+        subcategory_drink = select_result[0][1]
+        category_drink = select_result[0][0]
 
+        print("check category ", category_drink)
         print(subcategory_drink)
 
-        if DBapp.select_data_from_user_rate_table(subcategory_drink[0][0]) == []:
-            DBapp.insert_into_user_rate(user_id, subcategory_drink[0][0], message.text)
+        if DBapp.select_for_checking_existing(category_drink) == []:
+            DBapp.insert_into_category_rate(category_drink)
+        else:
+            DBapp.update_category_rate_clicks(category_drink)
+
+        if DBapp.select_data_from_user_rate_table(subcategory_drink) == []:
+            DBapp.insert_into_user_rate(user_id, subcategory_drink, scoreProd)
+            flag = True
             print("inserted")
         else:
-            DBapp.update_user_rate_votes(scoreProd, subcategory_drink[0][0], user_id)
+            DBapp.update_user_rate_votes(scoreProd, subcategory_drink, user_id)
+            flag = False
             print("updated")
 
-        rate = DBapp.select_rate_from_global_rate_table(subcategory_drink[0][0])
-        if rate == []:
-            DBapp.insert_global_rate_none_voted(subcategory_drink[0][0])
+        if flag:
+            DBapp.update_global_rate_votes(subcategory_drink)
         else:
-            DBapp.update_global_rate_votes(subcategory_drink[0][0])
+            pass
 
         if old_keyboard_state:
             bot.send_message(message.chat.id, "If you wanna continue type something or command reset")
         else:
             for x in global_products_categories:
-                DBapp.insert_into_context_table(user_id, subcategory_drink[0][0], x)
+                DBapp.insert_into_context_table(user_id, subcategory_drink, x)
 
             bot.send_message(message.chat.id, "If you wanna continue type something if not type NO or command reset")
 
@@ -332,6 +345,9 @@ def score(message):
     print("here 2")
 
 
+DRINKS = None
+
+
 # 0ой этап отбора
 def simple_drinks_handler(drinks_to_choose, drinks_to_cancel):
     global global_drinks
@@ -339,7 +355,6 @@ def simple_drinks_handler(drinks_to_choose, drinks_to_cancel):
     # получаем частотный словарь по напиткам
     for drink in global_drinks:
         sub = DBapp.select_drinks_by_categories(drink)
-
         for x in sub:
             if subcategories.__contains__(x[0]):
                 subcategories[x[0]] += 1
@@ -364,6 +379,8 @@ def context_drinks_handler(chosen, canceled):
         print("product_id = " + cat)
         for drink in DBapp.select_drinks_from_context_table(cat):
             if drink[0] in canceled:
+                pass
+            elif drink[0] in chosen:
                 pass
             else:
                 chosen.append(drink[0])

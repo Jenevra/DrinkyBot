@@ -13,7 +13,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/DrinkyBot$bot__1_.coverage" NAME="bot (1) Coverage Results" MODIFIED="1523621430787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+=======
+    <SUITE FILE_PATH="coverage/DrinkyBot$bot__1_.coverage" NAME="bot (1) Coverage Results" MODIFIED="1523618143030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
     <SUITE FILE_PATH="coverage/DrinkyBot$bot.coverage" NAME="bot Coverage Results" MODIFIED="1521654328898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FavoritesManager">
@@ -24,7 +28,11 @@
       <file leaf-file-name="bot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="5695">
+=======
+            <state relative-caret-position="293">
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
               <caret line="384" column="26" lean-forward="false" selection-start-line="384" selection-start-column="26" selection-end-line="384" selection-end-column="26" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -46,6 +54,7 @@
       <file leaf-file-name="DBapp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBapp.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="45">
               <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
               <folding>
@@ -81,6 +90,42 @@
                 <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
                 <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
                 <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <state relative-caret-position="7">
+              <caret line="2" column="196" lean-forward="false" selection-start-line="2" selection-start-column="196" selection-end-line="2" selection-end-column="196" />
+              <folding>
+                <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+                <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+                <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+                <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+                <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+                <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+                <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+                <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+                <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+                <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+                <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+                <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+                <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+                <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+                <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+                <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+                <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+                <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+                <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+                <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+                <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+                <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+                <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+                <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+                <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+                <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+                <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+                <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+                <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+                <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+                <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
               </folding>
             </state>
           </provider>
@@ -265,7 +310,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5714286" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25093168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -300,6 +349,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/DBapp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -341,6 +391,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5580">
@@ -372,6 +424,7 @@
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -404,6 +457,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -431,6 +517,7 @@
         <state relative-caret-position="2115">
           <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -463,6 +550,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -498,6 +618,7 @@
         <state relative-caret-position="2115">
           <caret line="141" column="4" lean-forward="false" selection-start-line="141" selection-start-column="4" selection-end-line="141" selection-end-column="4" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -530,6 +651,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -565,6 +719,7 @@
         <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -597,6 +752,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -632,6 +820,7 @@
         <state relative-caret-position="1020">
           <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -664,6 +853,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -707,6 +929,7 @@
         <state relative-caret-position="630">
           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -739,6 +962,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -766,6 +1022,7 @@
         <state relative-caret-position="285">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -798,6 +1055,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -840,6 +1130,7 @@
         <state relative-caret-position="75">
           <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -872,6 +1163,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -906,6 +1230,7 @@
         <state relative-caret-position="75">
           <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1523621084566" expanded="true" signature="286:312" ph="select * fro... product_category" />
             <marker date="1523621084566" expanded="true" signature="286:360" ph="select * fro... user_sub_category_rating" />
@@ -938,6 +1263,39 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>
@@ -1013,7 +1371,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="5695">
+=======
+        <state relative-caret-position="293">
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           <caret line="384" column="26" lean-forward="false" selection-start-line="384" selection-start-column="26" selection-end-line="384" selection-end-column="26" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1023,6 +1385,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DBapp.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="45">
           <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
           <folding>
@@ -1058,6 +1421,42 @@
             <marker date="1523621084566" expanded="true" signature="4441:4530" ph="INSERT INTO telegrambot.context_table... " />
             <marker date="1523621084566" expanded="true" signature="4700:4735" ph="SELECT * FRO... user_rate" />
             <marker date="1523621084566" expanded="true" signature="4700:4736" ph="SELECT r* FR... user_rate" />
+=======
+        <state relative-caret-position="7">
+          <caret line="2" column="196" lean-forward="false" selection-start-line="2" selection-start-column="196" selection-end-line="2" selection-end-column="196" />
+          <folding>
+            <marker date="1523615604320" expanded="true" signature="294:320" ph="select * fro... product_category" />
+            <marker date="1523615604320" expanded="true" signature="294:368" ph="select * fro... user_sub_category_rating" />
+            <marker date="1523615604320" expanded="true" signature="492:546" ph="INSERT INTO telegrambot.user_table... " />
+            <marker date="1523615604320" expanded="true" signature="651:676" ph="SELECT count... tele" />
+            <marker date="1523615604320" expanded="true" signature="651:691" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="651:696" ph="SELECT count... product" />
+            <marker date="1523615604320" expanded="true" signature="842:925" ph="INSERT INTO telgerambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="1064:1123" ph="SELECT categ... product_category" />
+            <marker date="1523615604320" expanded="true" signature="1279:1347" ph="SELECT sub_c... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1503:1580" ph="SELECT сфе F... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="1741:1799" ph="SELECT produ... product" />
+            <marker date="1523615604320" expanded="true" signature="1967:2042" ph="SELECT categ... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2199:2276" ph="SELECT c FRO... drinks_to_drink" />
+            <marker date="1523615604320" expanded="true" signature="2444:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2509:2512" ph="SELECT namin... drink_subcategory" />
+            <marker date="1523615604320" expanded="true" signature="2669:2737" ph="SELECT sub_c... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2922" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2951" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="2893:2953" ph="SELECT rate global_rate" />
+            <marker date="1523615604320" expanded="true" signature="2893:2968" ph="SELECT * FRO... context_table" />
+            <marker date="1523615604320" expanded="true" signature="3105:3190" ph="INSERT INTO telegrambot.global_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3105:3210" ph="INSERT INTO telegrambot.product... " />
+            <marker date="1523615604320" expanded="true" signature="3319:3387" ph="SELECT sub_c... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3542:3598" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="3761:3840" ph="INSERT INTO telegrambot.user_rate... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4017" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="3982:4065" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4203:4280" ph="UPDATE teleg... " />
+            <marker date="1523615604320" expanded="true" signature="4449:4538" ph="INSERT INTO telegrambot.context_table... " />
+            <marker date="1523615604320" expanded="true" signature="4708:4743" ph="SELECT * FRO... user_rate" />
+            <marker date="1523615604320" expanded="true" signature="4708:4744" ph="SELECT r* FR... user_rate" />
+>>>>>>> eb0b5fc886dece43689db5dfd75419eb5b37f176
           </folding>
         </state>
       </provider>

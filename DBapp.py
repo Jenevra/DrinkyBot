@@ -4,8 +4,6 @@ import os
 conn = psycopg2.connect("postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
 
 
-
-
 def select_user_id(user_id):
     cur = conn.cursor()
     cur.execute("SELECT user_id FROM telegrambot.user_table WHERE user_id=" + str(user_id) + ";")
@@ -37,14 +35,6 @@ def select_category_from_category_table(name):
     cur.execute("SELECT category_id FROM telegrambot.product WHERE naming=%s", (name,))
     records = cur.fetchall()
     return records
-
-
-def select_subcategory_from_subcategory_table(name):
-    cur = conn.cursor()
-    cur.execute("SELECT sub_cat_id FROM telegrambot.drink_subcategory WHERE naming=%s", (name,))
-    records = cur.fetchall()
-    return records
-
 
 def select_category_from_subcategory_table(sub_cat):
     cur = conn.cursor()
@@ -147,3 +137,29 @@ def select():
     cur.execute("SELECT * FROM telegrambot.user_rate ")
     records = cur.fetchall()
     return records
+
+
+def select_category_and_subcategory_from_subcategory_table(name):
+    cur = conn.cursor()
+    cur.execute("SELECT category_drinks, sub_cat_id FROM telegrambot.drink_subcategory WHERE naming=%s", (name,))
+    records = cur.fetchall()
+    return records
+
+
+def select_for_checking_existing(category):
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM telegrambot.category_rate WHERE category_drink=%s", (str(category),))
+    records = cur.fetchall()
+    return records
+
+
+def insert_into_category_rate(category):
+    cur = conn.cursor()
+    cur.execute("INSERT INTO telegrambot.category_rate(category_drink, count_clicks) VALUES(%s, %s)", (str(category), 1))
+    conn.commit()
+
+
+def update_category_rate_clicks(category):
+    cur = conn.cursor()
+    cur.execute("UPDATE telegrambot.category_rate SET count_clicks = count_clicks+%s WHERE category_drink=%s", (1, str(category)))
+    conn.commit()
