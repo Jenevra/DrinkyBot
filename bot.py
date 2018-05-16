@@ -11,7 +11,6 @@ import re
 from statistics import median
 from telebot import types
 
-
 old_keyboard_state = None
 user_id = None
 state = 0
@@ -30,6 +29,41 @@ scoreProd = None
 drinks_canceled = None
 global_drinks = None
 global_products_categories = None
+
+
+def formula_of_sample():
+    p_parameter = 0.5
+    e_parameter = 0.05
+    z_parameter = 1.96
+    N_parameter = DBapp.select_quantity_users()[0][0]
+
+    if N_parameter < 100:
+        return 20
+    elif N_parameter % 100 == 0:
+
+        upper_part = (z_parameter ** 2 * p_parameter*(1-p_parameter))/(e_parameter ** 2)
+        lower_part = 1 + upper_part / N_parameter
+
+        return upper_part / lower_part
+
+
+def formula_of_rate(drink):
+    R_parameter = float(DBapp.average_rate_of_drink(drink)[0][0])
+    v_parameter = float(DBapp.select_count_votes(drink)[0][0])
+    C_parameter = float(DBapp.average_global_score()[0][0])
+
+    m_parameter = float(round(formula_of_sample(), 0))
+
+    upper_part = R_parameter * v_parameter + C_parameter * m_parameter
+    lower_part = v_parameter + m_parameter
+
+    return upper_part / lower_part
+
+
+score = formula_of_rate("DESVN1")
+print("RATE DRINK = ", score)
+
+DBapp.update_global_rate(score, "DESVN1")
 
 
 def sparql_request(product):
@@ -223,6 +257,8 @@ def method(message):
         for x in drinks_canceled:
             cancel.append(DBapp.select_name_drinks_by_subcategories(x)[0][0])
 
+        print("CANCEL")
+        print(cancel)
         bot.send_message(message.chat.id, "I have results, wanna know?")
         state = 200
 

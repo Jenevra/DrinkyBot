@@ -36,6 +36,7 @@ def select_category_from_category_table(name):
     records = cur.fetchall()
     return records
 
+
 def select_category_from_subcategory_table(sub_cat):
     cur = conn.cursor()
     cur.execute("SELECT category_drinks FROM telegrambot.drink_subcategory WHERE sub_cat_id=%s", (sub_cat,))
@@ -163,3 +164,38 @@ def update_category_rate_clicks(category):
     cur = conn.cursor()
     cur.execute("UPDATE telegrambot.category_rate SET count_clicks = count_clicks+%s WHERE category_drink=%s", (1, str(category)))
     conn.commit()
+
+
+def average_global_score():
+    cur = conn.cursor()
+    cur.execute("SELECT AVG(rate) FROM telegrambot.global_rate WHERE count_votes > 0 ")
+    records = cur.fetchall()
+    return records
+
+
+def select_quantity_users():
+    cur = conn.cursor()
+    cur.execute("SELECT COUNT(user_id) FROM telegrambot.user_table")
+    records = cur.fetchall()
+    return records
+
+
+def average_rate_of_drink(subcategory):
+    cur = conn.cursor()
+    cur.execute("SELECT AVG(rate) FROM telegrambot.user_rate WHERE sub_cat_id=%s", (subcategory,))
+    records = cur.fetchall()
+    return records
+
+
+def select_count_votes(subcategory):
+    cur = conn.cursor()
+    cur.execute("SELECT count_votes FROM telegrambot.global_rate WHERE sub_cat_id=%s", (subcategory,))
+    records = cur.fetchall()
+    return records
+
+
+def update_global_rate(rate, subcategory):
+    cur = conn.cursor()
+    cur.execute("UPDATE telegrambot.global_rate SET rate = %s WHERE sub_cat_id=%s", (rate, subcategory))
+    conn.commit()
+
