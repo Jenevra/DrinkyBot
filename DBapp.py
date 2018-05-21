@@ -199,3 +199,24 @@ def update_global_rate(rate, subcategory):
     cur.execute("UPDATE telegrambot.global_rate SET rate = %s WHERE sub_cat_id=%s", (rate, subcategory))
     conn.commit()
 
+
+def select_sum_clicks():
+    cur = conn.cursor()
+    cur.execute("SELECT SUM(count_clicks) FROM telegrambot.category_rate")
+    records = cur.fetchall()
+    return records
+
+
+def select_all_categories_of_drink():
+    cur = conn.cursor()
+    cur.execute("SELECT naming FROM telegrambot.drink_category")
+    records = cur.fetchall()
+    return records
+
+
+def select_clicks_for_one(naming):
+    cur = conn.cursor()
+    cur.execute("SELECT t2.count_clicks FROM telegrambot.drink_category t1 INNER JOIN telegrambot.category_rate t2 "
+                "ON t1.category_drink = t2.category_drink where t1.naming=%s", (str(naming),))
+    records = cur.fetchall()
+    return records

@@ -1,4 +1,3 @@
-import psycopg2
 import config
 import telebot
 import os
@@ -36,6 +35,7 @@ def formula_of_sample():
     e_parameter = 0.05
     z_parameter = 1.96
     N_parameter = DBapp.select_quantity_users()[0][0]
+    print("QUANITY USER ", N_parameter)
 
     if N_parameter < 100:
         return 20
@@ -60,10 +60,10 @@ def formula_of_rate(drink):
     return upper_part / lower_part
 
 
-score = formula_of_rate("DESVN1")
-print("RATE DRINK = ", score)
-
-DBapp.update_global_rate(score, "DESVN1")
+#score = formula_of_rate("DESVN1")
+#print("RATE DRINK = ", score)
+#
+#DBapp.update_global_rate(score, "DESVN1")
 
 
 def sparql_request(product):
@@ -176,6 +176,56 @@ def reset_condition(message):
     bot.send_message(message.chat.id, text.reset_message)
     state = config.STATES.S_RESET
     bot.send_message(message.chat.id, check_state(state))
+
+
+@bot.message_handler(commands=['statistics'])
+def statistic_command(message):
+    global state
+    naming_drinks_request = DBapp.select_all_categories_of_drink()
+    drinks_names = []
+    for drink in naming_drinks_request:
+        drinks_names.append(drink[0])
+
+    keyboard = types.InlineKeyboardMarkup()
+    keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
+    bot.send_message(message.chat.id, 'Choose one category to see statistic', reply_markup=keyboard)
+    state = 8
+
+
+@bot.callback_query_handler(func=lambda c: True and state == 8)
+def inlined(c):
+    flagg = True
+    print("state 8 is here")
+    print(c.data)
+    clicks = 0.0
+    sum_clicks = 0.0
+    try:
+        clicks = DBapp.select_clicks_for_one(c.data)[0][0]
+        sum_clicks = DBapp.select_sum_clicks()[0][0]
+    except IndexError:
+        flagg = False
+
+    if flagg:
+        percentage = clicks / sum_clicks * 100
+        answer = ""
+        if percentage < 30:
+            answer = "It means that less than 30 percent of people choose this category"
+        elif percentage in range(30, 51):
+            answer = "More than a half of people choose " + c.data
+        elif percentage > 80:
+            answer = "The most popular drink"
+
+        bot.send_message(c.message.chat.id, "Percentage of choice of drink " + "{:.3f}".format((clicks/sum_clicks) * 100))
+        bot.send_message(c.message.chat.id, answer)
+    else:
+        bot.send_message(c.message.chat.id, "There is no information about this drink ")
+    bot.send_message(c.message.chat.id, 'Press /continue if you want to continue to look for statistic')
+
+
+@bot.message_handler(commands=['continue'])
+def cont(message):
+    print("CONTINUE")
+    statistic_command(message)
 
 
 @bot.message_handler(commands=['products'])
@@ -292,7 +342,7 @@ def keyboard1(message):
 
 
 @bot.callback_query_handler(func=lambda c: True and state == 15)
-def inline(c):
+def inline1(c):
     bot.send_message(c.message.chat.id, "Enter score for " + c.data)
     global state
     global total
@@ -309,7 +359,7 @@ def inline(c):
 
 
 @bot.callback_query_handler(func=lambda c: True and state == 150)
-def inline(c):
+def inline2(c):
     bot.send_message(c.message.chat.id, "Enter score for " + c.data)
     global state
     global cancel
