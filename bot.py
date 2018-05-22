@@ -51,7 +51,6 @@ def formula_of_rate(drink):
     R_parameter = float(DBapp.average_rate_of_drink(drink)[0][0])
     v_parameter = float(DBapp.select_count_votes(drink)[0][0])
     C_parameter = float(DBapp.average_global_score()[0][0])
-
     m_parameter = float(round(formula_of_sample(), 0))
 
     upper_part = R_parameter * v_parameter + C_parameter * m_parameter
@@ -124,6 +123,9 @@ def check_state(var_state):
         state = 0
         resetted()
         return "I've resetted all of your data, so you can exit or start again"
+    elif var_state == 23 or var_state == 107:
+        state = 0
+        return "May be you want to /start again"
 
 
 def resetted():
@@ -189,10 +191,10 @@ def statistic_command(message):
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
     bot.send_message(message.chat.id, 'Choose one category to see statistic', reply_markup=keyboard)
-    state = 8
+    state = 23
 
 
-@bot.callback_query_handler(func=lambda c: True and state == 8)
+@bot.callback_query_handler(func=lambda c: True and state == 23)
 def inlined(c):
     flagg = True
     print("state 8 is here")
@@ -215,17 +217,60 @@ def inlined(c):
         elif percentage > 80:
             answer = "The most popular drink"
 
-        bot.send_message(c.message.chat.id, "Percentage of choice of drink " + "{:.3f}".format((clicks/sum_clicks) * 100))
+        bot.send_message(c.message.chat.id, "Percentage of choice of drink " + "{:.3f}".format(percentage))
         bot.send_message(c.message.chat.id, answer)
     else:
-        bot.send_message(c.message.chat.id, "There is no information about this drink ")
-    bot.send_message(c.message.chat.id, 'Press /continue if you want to continue to look for statistic')
+        bot.send_message(c.message.chat.id, "There is no information about this drink stll")
+    bot.send_message(c.message.chat.id, 'Press /continue if you want to continue to look for statistic or /end')
+
+
+@bot.message_handler(commands=['drinks_statistic'])
+def drink_statistic_command(message):
+    global state
+    naming_drinks_request = DBapp.select_all_categories_of_drink()
+    drinks_names = []
+    for drink in naming_drinks_request:
+        drinks_names.append(drink[0])
+
+    keyboard = types.InlineKeyboardMarkup()
+    keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
+    bot.send_message(message.chat.id, 'Choose one category to see drink statistic from this category', reply_markup=keyboard)
+    state = 107
+
+
+@bot.callback_query_handler(func=lambda c: True and state == 107)
+def inlinedd(c):
+    flagg = True
+    print("state 107 is here")
+    print(c.data)
+    category = DBapp.to_know_category_id_of_drink(c.data)[0][0]
+    name_and_rate = DBapp.select_naming_raiting(category)
+    if name_and_rate != []:
+        for n_r in name_and_rate:
+            name = n_r[0]
+            rate = n_r[1]
+            bot.send_message(c.message.chat.id, "Rate of " + name + " is " + "{:.3f}".format(rate))
+        print(name_and_rate)
+    else:
+        bot.send_message(c.message.chat.id, "There is no information about drinks ib this category stll")
+    bot.send_message(c.message.chat.id, 'Press /continue if you want to continue to look for statistic or /end')
 
 
 @bot.message_handler(commands=['continue'])
 def cont(message):
+    global state
     print("CONTINUE")
-    statistic_command(message)
+    if state == 23:
+        statistic_command(message)
+    elif state == 107:
+        drink_statistic_command(message)
+
+
+@bot.message_handler(commands=['end'])
+def end(message):
+    global state
+    print("END")
+    bot.send_message(message.chat.id, check_state(state))
 
 
 @bot.message_handler(commands=['products'])

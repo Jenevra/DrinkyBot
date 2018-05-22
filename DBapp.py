@@ -220,3 +220,18 @@ def select_clicks_for_one(naming):
                 "ON t1.category_drink = t2.category_drink where t1.naming=%s", (str(naming),))
     records = cur.fetchall()
     return records
+
+
+def select_naming_raiting(category):
+    cur = conn.cursor()
+    cur.execute(" SELECT t1.naming, t2.rate FROM telegrambot.drink_subcategory t1 INNER JOIN telegrambot.global_rate t2 "
+                "ON  t1.sub_cat_id = t2.sub_cat_id WHERE category_drinks=%s", (str(category),))
+    records = cur.fetchall()
+    return records
+
+
+def to_know_category_id_of_drink(naming):
+    cur = conn.cursor()
+    cur.execute("SELECT category_drink FROM telegrambot.drink_category WHERE naming=%s", (str(naming),))
+    records = cur.fetchall()
+    return records
