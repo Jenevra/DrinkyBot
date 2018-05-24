@@ -113,6 +113,7 @@ def add_new_product(product_name, product_category):
 
 #add_new_product("улитки", "CAT6")
 
+#ДОПИСАТЬ СЮДА ВСЕ СОСТОЯНИ КОГДА МОЖЕТ БЫТЬ ВЫЗВАН help
 def check_state(var_state):
     global state
     if var_state == 0:
@@ -124,8 +125,11 @@ def check_state(var_state):
         resetted()
         return "I've resetted all of your data, so you can exit or start again"
     elif var_state == 23 or var_state == 107:
+        return "Continue to choose category"
+    elif var_state == 19:
         state = 0
         return "May be you want to /start again"
+
 
 
 def resetted():
@@ -269,6 +273,7 @@ def cont(message):
 @bot.message_handler(commands=['end'])
 def end(message):
     global state
+    state = 19
     print("END")
     bot.send_message(message.chat.id, check_state(state))
 
