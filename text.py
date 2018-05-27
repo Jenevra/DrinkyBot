@@ -6,7 +6,7 @@ start_message_unknown_user = 'Hi, I guess you\'re new.\n' +\
 start_message_known_user = 'Hello, you really know what to do!'
 
 choose_product_message = 'Please enter one or more product.\n' + \
-                         'Divide them by , or by ENTER'
+                         'Divide them by "," or "." or "space" '
 
 help_message = 'Do you need help? Here some advice.\n'
 

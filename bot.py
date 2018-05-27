@@ -113,23 +113,33 @@ def add_new_product(product_name, product_category):
 
 #add_new_product("улитки", "CAT6")
 
-#ДОПИСАТЬ СЮДА ВСЕ СОСТОЯНИ КОГДА МОЖЕТ БЫТЬ ВЫЗВАН help
 def check_state(var_state):
     global state
-    if var_state == 0:
-        return "Please press one of all command"
-    elif var_state == 1:
-        return "Please continue to ENTER products"
-    elif var_state == 8:
-        state = 0
+    if var_state == config.STATES.S_GLOBAL_BEGIN:
+        return "You are in the main menu\n" + \
+               "You can start entering /products\n" + \
+               "You can see category /statistics\n" + \
+               "You can see /drinks_statistic\n" + \
+               "Please press one of all command"
+    elif var_state == config.STATES.S_CHOOSE_PRODUCT:
+        return "You are in process of entering products\n" + \
+               "Please continue to ENTER products"
+    elif var_state == config.STATES.S_RESET:
+        state = config.STATES.S_GLOBAL_BEGIN
         resetted()
         return "I've resetted all of your data, so you can exit or start again"
-    elif var_state == 23 or var_state == 107:
+    elif var_state == config.STATES.S_STATISTIC or var_state == config.STATES.S_DRINKS_STATISTIC:
         return "Continue to choose category"
-    elif var_state == 19:
-        state = 0
+    elif var_state == config.STATES.S_LOCAL_END:
+        state = config.STATES.S_GLOBAL_BEGIN
         return "May be you want to /start again"
-
+    elif var_state == config.STATES.S_CHOOSE_DRINK or var_state == config.STATES.S_OLD_KEYBOARD_STATE:
+        return "You are at the point of choosing drink\n" + \
+               "Please choose one drink"
+    elif var_state == config.STATES.S_KEYBOARD_PRODUCT:
+        return "You need to write whatever you want or /reset"
+    elif var_state == config.STATES.S_SCORE:
+        return "You need to ENTER the score for drink how do you feel about it with your products"
 
 
 def resetted():
@@ -156,6 +166,7 @@ def resetted():
 def start(message):
     global user_id
     global state
+    state = 0
     user_id = message.from_user.id
     res_select = DBapp.select_user_id(user_id)
     if res_select == []:
@@ -195,10 +206,10 @@ def statistic_command(message):
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
     bot.send_message(message.chat.id, 'Choose one category to see statistic', reply_markup=keyboard)
-    state = 23
+    state = config.STATES.S_STATISTIC
 
 
-@bot.callback_query_handler(func=lambda c: True and state == 23)
+@bot.callback_query_handler(func=lambda c: True and state == config.STATES.S_STATISTIC)
 def inlined(c):
     flagg = True
     print("state 8 is here")
@@ -216,9 +227,11 @@ def inlined(c):
         answer = ""
         if percentage < 30:
             answer = "It means that less than 30 percent of people choose this category"
-        elif percentage in range(30, 51):
-            answer = "More than a half of people choose " + c.data
-        elif percentage > 80:
+        elif 30 <= percentage < 50:
+            answer = "The results are average, but " + c.data + " is quite good"
+        elif 50 <= percentage < 80:
+            answer = "It means that more than half of users choose this category"
+        elif percentage >= 80:
             answer = "The most popular drink"
 
         bot.send_message(c.message.chat.id, "Percentage of choice of drink " + "{:.3f}".format(percentage))
@@ -239,10 +252,10 @@ def drink_statistic_command(message):
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
     bot.send_message(message.chat.id, 'Choose one category to see drink statistic from this category', reply_markup=keyboard)
-    state = 107
+    state = config.STATES.S_DRINKS_STATISTIC
 
 
-@bot.callback_query_handler(func=lambda c: True and state == 107)
+@bot.callback_query_handler(func=lambda c: True and state == config.STATES.S_DRINKS_STATISTIC)
 def inlinedd(c):
     flagg = True
     print("state 107 is here")
@@ -264,16 +277,16 @@ def inlinedd(c):
 def cont(message):
     global state
     print("CONTINUE")
-    if state == 23:
+    if state == config.STATES.S_STATISTIC:
         statistic_command(message)
-    elif state == 107:
+    elif state == config.STATES.S_DRINKS_STATISTIC:
         drink_statistic_command(message)
 
 
 @bot.message_handler(commands=['end'])
 def end(message):
     global state
-    state = 19
+    state = config.STATES.S_LOCAL_END
     print("END")
     bot.send_message(message.chat.id, check_state(state))
 
@@ -285,7 +298,7 @@ def enter_product_handler(message):
     state = config.STATES.S_CHOOSE_PRODUCT
 
 
-@bot.message_handler(func=lambda m: state == 0)
+@bot.message_handler(func=lambda m: state == config.STATES.S_GLOBAL_BEGIN)
 def handler(message):
     global state
     r = message.text
@@ -360,38 +373,38 @@ def method(message):
         print("CANCEL")
         print(cancel)
         bot.send_message(message.chat.id, "I have results, wanna know?")
-        state = 200
+        state = config.STATES.S_KEYBOARD_PRODUCT
 
 
-@bot.message_handler(func=lambda message: state == 200)
+@bot.message_handler(func=lambda message: state == config.STATES.S_KEYBOARD_PRODUCT)
 def keyboard1(message):
     global total
     global cancel
     global state
     global old_keyboard_state
 
-    if message.text == "no" or old_keyboard_state == 150:
+    if message.text == "no" or old_keyboard_state == config.STATES.S_OLD_KEYBOARD_STATE:
         print("NO")
         if cancel != []:
             keyboard2 = types.InlineKeyboardMarkup()
             keyboard2.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in cancel])
             bot.send_message(message.chat.id, 'Please score some drinks you have not seen', reply_markup=keyboard2)
-            state = 150
+            state = config.STATES.S_OLD_KEYBOARD_STATE
         else:
             bot.send_message(message.chat.id, "It was nice to talk with you")
-            state = 8
+            state = config.STATES.S_RESET
             reset_condition(message)
 
     else:
         keyboard = types.InlineKeyboardMarkup()
         keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in total])
         bot.send_message(message.chat.id, 'What do you prefer?', reply_markup=keyboard)
-        state = 15
+        state = config.STATES.S_CHOOSE_DRINK
 
     print("here 5")
 
 
-@bot.callback_query_handler(func=lambda c: True and state == 15)
+@bot.callback_query_handler(func=lambda c: True and state == config.STATES.S_CHOOSE_DRINK)
 def inline1(c):
     bot.send_message(c.message.chat.id, "Enter score for " + c.data)
     global state
@@ -399,16 +412,15 @@ def inline1(c):
 
     global nameSubcategory
     nameSubcategory = c.data
-
     total.remove(c.data)
     print("here")
     print("name =  " + c.data)
-    state = 122
+    state = config.STATES.S_SCORE
 
     print("here 1")
 
 
-@bot.callback_query_handler(func=lambda c: True and state == 150)
+@bot.callback_query_handler(func=lambda c: True and state == config.STATES.S_OLD_KEYBOARD_STATE)
 def inline2(c):
     bot.send_message(c.message.chat.id, "Enter score for " + c.data)
     global state
@@ -416,17 +428,16 @@ def inline2(c):
     global old_keyboard_state
     global nameSubcategory
     nameSubcategory = c.data
-
     cancel.remove(c.data)
     print("here")
     print("name =  " + c.data)
-    old_keyboard_state = 150
-    state = 122
+    old_keyboard_state = config.STATES.S_OLD_KEYBOARD_STATE
+    state = config.STATES.S_SCORE
 
     print("here 10")
 
 
-@bot.message_handler(func=lambda message:  state == 122)
+@bot.message_handler(func=lambda message:  state == config.STATES.S_SCORE)
 def score(message):
     global state
     global nameSubcategory
@@ -438,7 +449,7 @@ def score(message):
     flag = True
     print(state)
     if message.text.isdecimal():
-        state = 200
+        state = config.STATES.S_KEYBOARD_PRODUCT
         print("name =  " + nameSubcategory)
         print("score = " + message.text)
         select_result = DBapp.select_category_and_subcategory_from_subcategory_table(nameSubcategory)
@@ -472,7 +483,6 @@ def score(message):
         else:
             for x in global_products_categories:
                 DBapp.insert_into_context_table(user_id, subcategory_drink, x)
-
             bot.send_message(message.chat.id, "If you wanna continue type something if not type NO or command reset")
 
     else:
