@@ -8,7 +8,7 @@ start_message_known_user = 'Hello, you really know what to do!'
 choose_product_message = 'Please enter one or more product.\n' + \
                          'Divide them by "," or "." or "space" '
 
-help_message = 'Do you need help? Here some advice.\n'
+help_message = 'Do you need help? Here some advices.\n'
 
 reset_message = "Goodbye, see you later :)"
 

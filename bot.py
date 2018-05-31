@@ -1,6 +1,7 @@
 import config
 import telebot
 import os
+import json
 import socket
 import DBapp
 import text
@@ -28,6 +29,44 @@ scoreProd = None
 drinks_canceled = None
 global_drinks = None
 global_products_categories = None
+dicty = None
+
+xc = ["/c_7033", "/с_8171", "/c_1806", "/c_4830", "/c_3131", "/c_785", "/c_2943", "/c_4669", "/ c_6147"]
+xcat = ["CAT6", "CAT1", "CAT10", "CAT11", "CAT12", "CAT4", "CAT5", "CAT7", "CAT9"]
+
+
+def reading_categories():
+    global dicty
+    dicty = []
+    with open('data.json') as data_file:
+        data_loaded = json.load(data_file)
+
+    for result in data_loaded["results"]["bindings"]:
+        subcat = re.search(r'/(\w*)$', result["subcategory"]["value"]).group()
+        cat = re.search(r'/(\w*)$', result["category"]["value"]).group()
+        arr = [cat, subcat]
+        dicty.append(arr)
+
+
+def category_return(categ):
+    global dicty
+    array = []
+    for category in categ:
+        for x in dicty:
+            if x[1] == category:
+                array.append(x[0])
+    return array
+
+
+def know_product(categg):
+    if categg[0] in xc:
+        return categg[0], xc.index(categg[0])
+    while True:
+        category_array = category_return(categg)
+        for x in category_array:
+            if x in xc:
+                return x, xc.index(x)
+        categg = category_array
 
 
 def formula_of_sample():
@@ -166,9 +205,11 @@ def resetted():
 def start(message):
     global user_id
     global state
+    global dicty
     state = 0
     user_id = message.from_user.id
     res_select = DBapp.select_user_id(user_id)
+    reading_categories()
     if res_select == []:
         print("there is no such user, so I will add it")
         bot.send_message(message.chat.id, text.start_message_unknown_user)
@@ -315,29 +356,33 @@ def method(message):
     global global_products_categories
     global drinks_canceled
     global total_product_categories
+    catg = []
     total_product_categories = []
+
 
     global_products_categories = []
     global_drinks = []
     drinks_chosen = []
     drinks_canceled = []
     print("state = ", message.text)
-    parsed_products = re.split('[., ]+', message.text)
+    parsed_products = re.split('[.,]+', message.text)
     # for each product we look its category (determine what is it)
     for product in parsed_products:
+        category = ""
         product_category = DBapp.select_category_from_category_table(product)
 
         print(product_category)
         # if product is in database then we look for for all drinks
         # that are compatible with this product
         if product_category == []:
-            category = "AAA"
-            #results = sparql_request(product)
-            #for result in results["results"]["bindings"]:
-            #    print(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
-            #    # получить здесь человеческую категорию продукта (преобразование категорий)
-            #    # category = ...
-            # добавить категорию чтоб она добавляалсь в global_products_categories
+            results = sparql_request(product)
+            for result in results["results"]["bindings"]:
+                print(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
+            catg.append(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
+            category_sparql, index = know_product(catg)
+            category = xcat[index]
+            new_product_id = add_new_product(product, category)
+            global_products_categories.append(new_product_id)
         else:
             global_products_categories.append(DBapp.select_product_category_from_category_table(product)[0][0])
             category = product_category[0][0]
