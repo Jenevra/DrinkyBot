@@ -221,6 +221,17 @@ def start(message):
         print("this user exists")
 
 
+@bot.message_handler(commands=['info'])
+def info(message):
+    bot.send_message(message.chat.id, "Hi, my name is Jane Pankratova\n" + \
+                                      "I' m the creator of DrinkableBot\n" + \
+                                      "If you find mistakes or you aren't agree with bot's choice, \n" +\
+                                      "please, make screenshot and contact with me about your problem\n\n" +\
+                                      "Email: sunwillshine96@outlook.com\n" + \
+                                      "Telegram: genevieve_pn\n" + \
+                                      "VK: https://vk.com/pankratova_ev")
+
+
 @bot.message_handler(commands=['help'])
 def help_with_advice(message):
     global state
