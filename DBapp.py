@@ -235,3 +235,17 @@ def to_know_category_id_of_drink(naming):
     cur.execute("SELECT category_drink FROM telegrambot.drink_category WHERE naming=%s", (str(naming),))
     records = cur.fetchall()
     return records
+
+
+def select_drinks_global_rated():
+    cur = conn.cursor()
+    cur.execute("SELECT sub_cat_id FROM telegrambot.global_rate")
+    records = cur.fetchall()
+    return records
+
+
+def select_sum_count_votes():
+    cur = conn.cursor()
+    cur.execute("SELECT SUM(count_votes) FROM telegrambot.global_rate")
+    records = cur.fetchall()
+    return records

@@ -31,6 +31,7 @@ global_drinks = None
 global_products_categories = None
 dicty = None
 
+sample = None
 xc = ["/c_7033", "/с_8171", "/c_1806", "/c_4830", "/c_3131", "/c_785", "/c_2943", "/c_4669", "/ c_6147"]
 xcat = ["CAT6", "CAT1", "CAT10", "CAT11", "CAT12", "CAT4", "CAT5", "CAT7", "CAT9"]
 
@@ -76,21 +77,23 @@ def formula_of_sample():
     N_parameter = DBapp.select_quantity_users()[0][0]
     print("QUANITY USER ", N_parameter)
 
-    if N_parameter < 100:
-        return 20
-    elif N_parameter % 100 == 0:
+    upper_part = (z_parameter ** 2 * p_parameter*(1-p_parameter))/(e_parameter ** 2)
+    lower_part = 1 + upper_part / N_parameter
 
-        upper_part = (z_parameter ** 2 * p_parameter*(1-p_parameter))/(e_parameter ** 2)
-        lower_part = 1 + upper_part / N_parameter
-
-        return upper_part / lower_part
+    return upper_part / lower_part
 
 
 def formula_of_rate(drink):
+    global sample
+    C_parameter = 6.0
+
+    count_votes = DBapp.select_sum_count_votes()[0][0]
+    if count_votes > 500:
+        C_parameter = float(DBapp.average_global_score()[0][0])
+
     R_parameter = float(DBapp.average_rate_of_drink(drink)[0][0])
     v_parameter = float(DBapp.select_count_votes(drink)[0][0])
-    C_parameter = float(DBapp.average_global_score()[0][0])
-    m_parameter = float(round(formula_of_sample(), 0))
+    m_parameter = float(round(sample, 0))
 
     upper_part = R_parameter * v_parameter + C_parameter * m_parameter
     lower_part = v_parameter + m_parameter
@@ -206,10 +209,14 @@ def start(message):
     global user_id
     global state
     global dicty
+    global sample
     state = 0
+    sample = 0
     user_id = message.from_user.id
     res_select = DBapp.select_user_id(user_id)
     reading_categories()
+    rated = DBapp.select_drinks_global_rated()
+
     if res_select == []:
         print("there is no such user, so I will add it")
         bot.send_message(message.chat.id, text.start_message_unknown_user)
@@ -219,6 +226,20 @@ def start(message):
 
         bot.send_message(message.chat.id, text.start_message_known_user)
         print("this user exists")
+
+    quantity_users = DBapp.select_quantity_users()[0][0]
+    #quantity_users = 1000
+    if quantity_users < 100:
+        sample = 20
+    elif (quantity_users % 100 == 0 and quantity_users / 100 < 10) or (quantity_users % 1000 == 0 and quantity_users / 100 >= 10):
+        sample = formula_of_sample()
+        print("NEW SAMPLE IS COUNTED")
+        for drink in rated:
+            if DBapp.select_count_votes(drink[0])[0][0] > 0:
+                global_score = formula_of_rate(drink[0])
+                DBapp.update_global_rate(global_score, drink[0])
+
+                print(drink[0])
 
 
 @bot.message_handler(commands=['info'])
@@ -522,17 +543,16 @@ def score(message):
 
         if DBapp.select_data_from_user_rate_table(subcategory_drink) == []:
             DBapp.insert_into_user_rate(user_id, subcategory_drink, scoreProd)
-            flag = True
+            DBapp.update_global_rate_votes(subcategory_drink)
+
             print("inserted")
         else:
             DBapp.update_user_rate_votes(scoreProd, subcategory_drink, user_id)
-            flag = False
+
             print("updated")
 
-        if flag:
-            DBapp.update_global_rate_votes(subcategory_drink)
-        else:
-            pass
+        rate = formula_of_rate(subcategory_drink)
+        DBapp.update_global_rate(rate, subcategory_drink)
 
         if old_keyboard_state:
             bot.send_message(message.chat.id, "If you wanna continue type something or command reset")
