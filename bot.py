@@ -339,6 +339,7 @@ def inlinedd(c):
         for n_r in name_and_rate:
             name = n_r[0]
             rate = n_r[1]
+
             bot.send_message(c.message.chat.id, "Rate of " + name + " is " + "{:.3f}".format(rate))
         print(name_and_rate)
     else:

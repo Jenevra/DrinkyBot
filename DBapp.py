@@ -225,7 +225,7 @@ def select_clicks_for_one(naming):
 def select_naming_raiting(category):
     cur = conn.cursor()
     cur.execute(" SELECT t1.naming, t2.rate FROM telegrambot.drink_subcategory t1 INNER JOIN telegrambot.global_rate t2 "
-                "ON  t1.sub_cat_id = t2.sub_cat_id WHERE category_drinks=%s", (str(category),))
+                "ON  t1.sub_cat_id = t2.sub_cat_id WHERE category_drinks=%s AND t2.count_votes > 0", (str(category),))
     records = cur.fetchall()
     return records
 
