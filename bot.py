@@ -410,7 +410,7 @@ def method(message):
             results = sparql_request(product)
             for result in results["results"]["bindings"]:
                 print(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
-            catg.append(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
+                catg.append(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
             category_sparql, index = know_product(catg)
             category = xcat[index]
             new_product_id = add_new_product(product, category)
