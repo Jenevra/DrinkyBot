@@ -1,12 +1,14 @@
 start_message_unknown_user = 'Hi, I guess you\'re new.\n' +\
                              "Now I'll explain you how to work with me.\n" + \
                              'I want to offer you something to drink.\n' + \
-                             'Use /products to enter a product or list of products divided by ,\n'
+                             'Use /products to enter a product or list of products divided by "," or "."\n' + \
+                             'If you want to see statistic about drinks use /statistics to see which drink category\n' +\
+                             "is more popular or /drinks_statistic to see statistic for special drinks"
 
 start_message_known_user = 'Hello, you really know what to do!'
 
 choose_product_message = 'Please enter one or more product.\n' + \
-                         'Divide them by "," or "." or "space" '
+                         'Divide them by "," or "." '
 
 help_message = 'Do you need help? Here some advices.\n'
 

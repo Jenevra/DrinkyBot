@@ -376,10 +376,12 @@ def enter_product_handler(message):
 def handler(message):
     global state
     r = message.text
-    if r.lower() in ['hello', 'hi']:
+    if r.lower().find("hello") > -1 or r.lower().find("hi") > -1:
         bot.send_message(message.chat.id, text.answer_hello[random.randint(0, 3)])
     elif 'help' in r.split():
         bot.send_message(message.chat.id, text.answer_help)
+    elif r.lower().find("bye") > -1 or r.lower().find("goodbye") > -1:
+        bot.send_message(message.chat.id, "Goodbye, see you soon")
 
 
 @bot.message_handler(func=lambda message: state == config.STATES.S_CHOOSE_PRODUCT)
