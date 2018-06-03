@@ -399,8 +399,9 @@ def method(message):
     print("state = ", message.text)
     parsed_products = re.split('[.,]+', message.text)
     # for each product we look its category (determine what is it)
-    for product in parsed_products:
+    for producty in parsed_products:
         category = ""
+        product = producty.strip()
         product_category = DBapp.select_category_from_category_table(product)
 
         print(product_category)
