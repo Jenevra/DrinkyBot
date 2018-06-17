@@ -1,4 +1,4 @@
-token = '486255901:AAEToNghL5GfbOrbNSD5_pBj-gQ2_zxQfrQ'
+token = '486255901:AAEToNghсL5GfbOrbNSD5_pBj-gQ2_zxQfrs'
 http = "http://202.45.139.84:10035/catalogs/fao/repositories/agrovoc"
 
 
