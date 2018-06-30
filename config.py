@@ -1,4 +1,4 @@
-token = '486255901:AAEToNghсL5GfbOrbNSD5_pBj-gQ2_zxQfrs'
+token = 'your_token_from_fatherbot'
 http = "http://202.45.139.84:10035/catalogs/fao/repositories/agrovoc"
 
 
