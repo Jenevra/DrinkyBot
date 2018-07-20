@@ -1,18 +1,18 @@
-start_message_unknown_user = 'Hi, I guess you\'re new.\n' +\
-                             "Now I'll explain you how to work with me.\n" + \
-                             'I want to offer you something to drink.\n' + \
-                             'Use /products to enter a product or list of products divided by "," or "."\n' + \
-                             'If you want to see statistic about drinks use /statistics to see which drink category\n' +\
-                             "is more popular or /drinks_statistic to see statistic for special drinks"
+start_message_unknown_user = 'Привет, я вижу ты тут в первый раз.\n' +\
+                             "Сейчас я объясню тебе как со мной общаться.\n" + \
+                             'Я бы хотел предложить тебе разные напитки.\n' + \
+                             'Используй команду /products , чтобы ввести продукты  Вводи их через "," или "."\n' + \
+                             'Используй эту команду /statistics , чтобы увидеть какая категория напитков\n' +\
+                             "популярнее или /drinks_statistic , чтобы увидеть статистику по отдельным напиткам"
 
-start_message_known_user = 'Hello, you really know what to do!'
+start_message_known_user = 'Привет, ты точно знаешь что надо делать!'
 
-choose_product_message = 'Please enter one or more product.\n' + \
-                         'Divide them by "," or "." '
+choose_product_message = 'Пожалуйста введи продукт или несколько.\n' + \
+                         'Пиши через "," или "." '
 
-help_message = 'Do you need help? Here some advices.\n'
+help_message = 'Тебе нужна помощь? Вот тебе мои советы:\n'
 
-reset_message = "Goodbye, see you later :)"
+reset_message = "Пока, увидимся снова :)"
 
 
 answer_hello = ["Hello, do you wanna start or already have started?\n"
