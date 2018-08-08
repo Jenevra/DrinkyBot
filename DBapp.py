@@ -1,12 +1,16 @@
 import psycopg2
 import os
 
-conny = psycopg2.connect("postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
+
+conn = psycopg2.connect("postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
 
 stack = []
 
 for i in range(0, 5):
-    stack.append(conny)
+    stack.append(conn)
+
+
+
 
 
 def select_user_id(user_id):

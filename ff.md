@@ -2,11 +2,8 @@
 
 
 
-
-
-<img src="https://cdn1.savepice.ru/uploads/2018/7/20/be5a1ad6bd785586cedefe9cc6c228af-full.png" alt="dd" border="0" >
+<img src="https://preview.ibb.co/ke7ZTd/2018_07_20_12_56_53.png" alt="dd" border="0" >
 
 
 
- [Ссылка на прототип](m.me/277693526317032 "Title") 
-
+[](m.me/277693526317032)m.me/277693526317032
