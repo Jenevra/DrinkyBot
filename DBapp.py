@@ -1,16 +1,14 @@
 import psycopg2
 import os
 
-
-conn = psycopg2.connect("postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
+# Need to delete private information
+conn = psycopg2.connect(
+    "postgres://rbewmdnmlnllbg:b7529688e0df5756b18a1b03a91734cd4fc3dce9a922f06aa8d09f7c3e5b6bb6@ec2-107-21-95-70.compute-1.amazonaws.com:5432/dcqsh49qsmmirk")
 
 stack = []
 
 for i in range(0, 5):
     stack.append(conn)
-
-
-
 
 
 def select_user_id(user_id):
@@ -65,7 +63,8 @@ def insert_product_table(prod_id, name, category):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("INSERT INTO telegrambot.product(product_id, naming, category_id) VALUES(%s, %s, %s)", (prod_id, name, category,))
+    cur.execute("INSERT INTO telegrambot.product(product_id, naming, category_id) VALUES(%s, %s, %s)",
+                (prod_id, name, category,))
     conn.commit()
     stack.append(conn)
 
@@ -154,7 +153,8 @@ def insert_global_rate_none_voted(category):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("INSERT INTO telegrambot.global_rate(sub_cat_id, rate, count_votes) VALUES(%s, %s, %s)", (category, 5, 0))
+    cur.execute("INSERT INTO telegrambot.global_rate(sub_cat_id, rate, count_votes) VALUES(%s, %s, %s)",
+                (category, 5, 0))
     conn.commit()
     stack.append(conn)
 
@@ -183,7 +183,8 @@ def insert_into_user_rate(user_id, subcategory, rate):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("INSERT INTO telegrambot.user_rate(user_id, sub_cat_id, rate) VALUES(%s, %s, %s)", (user_id, str(subcategory), rate))
+    cur.execute("INSERT INTO telegrambot.user_rate(user_id, sub_cat_id, rate) VALUES(%s, %s, %s)",
+                (user_id, str(subcategory), rate))
     conn.commit()
     stack.append(conn)
 
@@ -201,7 +202,8 @@ def update_user_rate_votes(new_rate, sub_cat, user_id):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("UPDATE telegrambot.user_rate SET rate = %s WHERE sub_cat_id=%s and user_id=%s", (new_rate, sub_cat, user_id))
+    cur.execute("UPDATE telegrambot.user_rate SET rate = %s WHERE sub_cat_id=%s and user_id=%s",
+                (new_rate, sub_cat, user_id))
     conn.commit()
     stack.append(conn)
 
@@ -211,7 +213,8 @@ def insert_into_context_table(user_id, subcategory, product):
     conn = stack.pop()
     cur = conn.cursor()
     try:
-        cur.execute("INSERT INTO telegrambot.context_table(user_id, sub_cat_id, product_id) VALUES(%s, %s, %s)", (user_id, str(subcategory), str(product)))
+        cur.execute("INSERT INTO telegrambot.context_table(user_id, sub_cat_id, product_id) VALUES(%s, %s, %s)",
+                    (user_id, str(subcategory), str(product)))
     except psycopg2.IntegrityError:
         pass
     conn.commit()
@@ -252,7 +255,8 @@ def insert_into_category_rate(category):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("INSERT INTO telegrambot.category_rate(category_drink, count_clicks) VALUES(%s, %s)", (str(category), 1))
+    cur.execute("INSERT INTO telegrambot.category_rate(category_drink, count_clicks) VALUES(%s, %s)",
+                (str(category), 1))
     conn.commit()
     stack.append(conn)
 
@@ -261,7 +265,8 @@ def update_category_rate_clicks(category):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute("UPDATE telegrambot.category_rate SET count_clicks = count_clicks+%s WHERE category_drink=%s", (1, str(category)))
+    cur.execute("UPDATE telegrambot.category_rate SET count_clicks = count_clicks+%s WHERE category_drink=%s",
+                (1, str(category)))
     conn.commit()
     stack.append(conn)
 
@@ -350,8 +355,9 @@ def select_naming_raiting(category):
     global stack
     conn = stack.pop()
     cur = conn.cursor()
-    cur.execute(" SELECT t1.naming, t2.rate FROM telegrambot.drink_subcategory t1 INNER JOIN telegrambot.global_rate t2 "
-                "ON  t1.sub_cat_id = t2.sub_cat_id WHERE category_drinks=%s AND t2.count_votes > 0", (str(category),))
+    cur.execute(
+        " SELECT t1.naming, t2.rate FROM telegrambot.drink_subcategory t1 INNER JOIN telegrambot.global_rate t2 "
+        "ON  t1.sub_cat_id = t2.sub_cat_id WHERE category_drinks=%s AND t2.count_votes > 0", (str(category),))
     records = cur.fetchall()
     stack.append(conn)
     return records
