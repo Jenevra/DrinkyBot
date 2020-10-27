@@ -11,7 +11,6 @@ import re
 from statistics import median
 from telebot import types
 
-
 old_keyboard_state = None
 user_id = None
 state = 0
@@ -102,7 +101,7 @@ def formula_of_sample():
     z_parameter = 1.96
     N_parameter = DBapp.select_quantity_users()[0][0]
 
-    upper_part = (z_parameter ** 2 * p_parameter*(1-p_parameter))/(e_parameter ** 2)
+    upper_part = (z_parameter ** 2 * p_parameter * (1 - p_parameter)) / (e_parameter ** 2)
     lower_part = 1 + upper_part / N_parameter
 
     return upper_part / lower_part
@@ -153,7 +152,7 @@ def sparql_request(product):
             ?prod_code skos:broader ?type_product.
             ?type_product skos:prefLabel ?type_naming.
 
-            FILTER ( str(?name)= """ + '\"' + product\
+            FILTER ( str(?name)= """ + '\"' + product \
                + '\"' + """ )
         }
         LIMIT 1
@@ -269,7 +268,7 @@ def start(message):
     reading_categories()
     rated = DBapp.select_drinks_global_rated()
 
-    if res_select == []:
+    if not res_select:
         print("there is no such user, so I will add it")
         bot.send_message(message.chat.id, text.start_message_unknown_user)
 
@@ -280,10 +279,11 @@ def start(message):
         print("this user exists")
 
     quantity_users = DBapp.select_quantity_users()[0][0]
-    #quantity_users = 1000
+    # quantity_users = 1000
     if quantity_users < 100:
         sample = 20
-    elif (quantity_users % 100 == 0 and quantity_users / 100 < 10) or (quantity_users % 1000 == 0 and quantity_users / 100 >= 10):
+    elif (quantity_users % 100 == 0 and quantity_users / 100 < 10) or (
+            quantity_users % 1000 == 0 and quantity_users / 100 >= 10):
         sample = formula_of_sample()
         print("NEW SAMPLE IS COUNTED")
         for drink in rated:
@@ -302,13 +302,15 @@ def info(message):
     :param message:
     :return:
     """
+
+    # Need to delete private information
     bot.send_message(message.chat.id, "Привет, меня зовут Панкратова Евгения\n" + \
-                                      "Я разработчик этого прекрасного бота DrinkableBot\n" + \
-                                      "Если ты нашел ошибку или не согласен с выбором бота, \n" +\
-                                      "пожалуйста,сделай скриншот и расскажи мне о своей проблеме\n\n" +\
-                                      "Email: sunwillshine96@outlook.com\n" + \
-                                      "Telegram: genevieve_pn\n" + \
-                                      "VK: https://vk.com/pankratova_ev")
+                     "Я разработчик этого прекрасного бота DrinkableBot\n" + \
+                     "Если ты нашел ошибку или не согласен с выбором бота, \n" + \
+                     "пожалуйста,сделай скриншот и расскажи мне о своей проблеме\n\n" + \
+                     "Email: sunwillshine96@outlook.com\n" + \
+                     "Telegram: genevieve_pn\n" + \
+                     "VK: https://vk.com/pankratova_ev")
 
 
 @bot.message_handler(commands=['help'])
@@ -395,12 +397,16 @@ def inlined(c):
         elif percentage >= 80:
             answer = "Это лучшее что можно придумать"
 
-        bot.send_message(c.message.chat.id, "Переходов, совершенных по данной категории: " + str(clicks) + " из " + str(sum_clicks))
-        bot.send_message(c.message.chat.id, "Процент положительных оценок напитков из категории (оценка 5-10): " + " {:.2f}".format(percentage))
+        bot.send_message(c.message.chat.id,
+                         "Переходов, совершенных по данной категории: " + str(clicks) + " из " + str(sum_clicks))
+        bot.send_message(c.message.chat.id,
+                         "Процент положительных оценок напитков из категории (оценка 5-10): " + " {:.2f}".format(
+                             percentage))
         bot.send_message(c.message.chat.id, answer)
     else:
         bot.send_message(c.message.chat.id, "К сожалению, напитков этой категории еще не выбирали.")
-    bot.send_message(c.message.chat.id, 'Нажми /continue если хочешь продолжить смотреть статистику или чтобы закончить /end')
+    bot.send_message(c.message.chat.id,
+                     'Нажми /continue если хочешь продолжить смотреть статистику или чтобы закончить /end')
 
 
 @bot.message_handler(commands=['drinks_statistic'])
@@ -420,7 +426,8 @@ def drink_statistic_command(message):
 
     keyboard = types.InlineKeyboardMarkup()
     keyboard.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in drinks_names])
-    bot.send_message(message.chat.id, 'Выбери одну из категорий, чтобы увидеть статистику по напиткам', reply_markup=keyboard)
+    bot.send_message(message.chat.id, 'Выбери одну из категорий, чтобы увидеть статистику по напиткам',
+                     reply_markup=keyboard)
     state = config.STATES.S_DRINKS_STATISTIC
 
 
@@ -435,7 +442,7 @@ def inlinedd(c):
     print(c.data)
     category = DBapp.to_know_category_id_of_drink(c.data)[0][0]
     name_and_rate = DBapp.select_naming_raiting(category)
-    if name_and_rate != []:
+    if name_and_rate:
         for n_r in name_and_rate:
             name = n_r[0]
             rate = n_r[1]
@@ -444,7 +451,8 @@ def inlinedd(c):
         print(name_and_rate)
     else:
         bot.send_message(c.message.chat.id, "Еще нет информации по данной категории")
-    bot.send_message(c.message.chat.id, 'Нажми /continue если хочешь продолжить смотреть статистику или чтобы закончить /end')
+    bot.send_message(c.message.chat.id,
+                     'Нажми /continue если хочешь продолжить смотреть статистику или чтобы закончить /end')
 
 
 @bot.message_handler(commands=['continue'])
@@ -526,7 +534,6 @@ def method(message):
     global drinks_canceled
     global total_product_categories
 
-
     catg = []
     total_product_categories = []
     global_products_categories = []
@@ -544,7 +551,7 @@ def method(message):
         print(product_category)
         # if product is in database then we look for for all drinks
         # that are compatible with this product
-        if product_category == []:
+        if not product_category:
             results = sparql_request(product)
             for result in results["results"]["bindings"]:
                 print(re.search(r'\/(\w*)$', result["type_product"]["value"]).group())
@@ -562,7 +569,7 @@ def method(message):
         for drink in drinks_category:
             global_drinks.append(drink[0])
 
-    if global_drinks == []:
+    if not global_drinks:
         bot.send_message(message.chat.id, text.nothing_to_find[random.randint(0, 2)])
         state = 0
     else:
@@ -610,7 +617,7 @@ def keyboard1(message):
 
     if message.text == "no" or old_keyboard_state == config.STATES.S_OLD_KEYBOARD_STATE:
         print("NO")
-        if cancel != []:
+        if cancel:
             keyboard2 = types.InlineKeyboardMarkup()
             keyboard2.add(*[types.InlineKeyboardButton(text=name, callback_data=name) for name in cancel])
             bot.send_message(message.chat.id, 'Please score some drinks you have not seen', reply_markup=keyboard2)
@@ -672,7 +679,7 @@ def inline2(c):
     print("here 10")
 
 
-@bot.message_handler(func=lambda message:  state == config.STATES.S_SCORE)
+@bot.message_handler(func=lambda message: state == config.STATES.S_SCORE)
 def score(message):
     """This method insert/update local user score for chosen drink
     Also it is re-calculating rate of this drink and add this rate to global rate table
@@ -688,7 +695,6 @@ def score(message):
     global old_keyboard_state
     global global_products_categories
     scoreProd = message.text
-    flag = True
     print(state)
     if message.text.isdecimal():
         state = config.STATES.S_KEYBOARD_PRODUCT
@@ -701,12 +707,12 @@ def score(message):
         print("check category ", category_drink)
         print(subcategory_drink)
 
-        if DBapp.select_for_checking_existing(category_drink) == []:
+        if not DBapp.select_for_checking_existing(category_drink):
             DBapp.insert_into_category_rate(category_drink)
         else:
             DBapp.update_category_rate_clicks(category_drink)
 
-        if DBapp.select_data_from_user_rate_table(subcategory_drink) == []:
+        if not DBapp.select_data_from_user_rate_table(subcategory_drink):
             DBapp.insert_into_user_rate(user_id, subcategory_drink, scoreProd)
             DBapp.update_global_rate_votes(subcategory_drink)
 
@@ -792,7 +798,7 @@ def global_rate_handler(chosen):
     global_rate_drinks = {}
     for drink in chosen:
         rate = DBapp.select_rate_from_global_rate_table(drink)
-        if rate == []:
+        if not rate:
             DBapp.insert_global_rate_none_voted(drink)
             global_rate_drinks.update({drink: 5.0})
             print("x")
@@ -831,4 +837,3 @@ sock = socket.socket()
 sock.bind(('', int(os.environ.get('PORT', '5000'))))
 sock.listen(1)
 bot.polling()
-
