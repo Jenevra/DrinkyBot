@@ -1,3 +1,4 @@
+# Need to delete private information
 token = '649372677:AAHFOU3Uz7m7JUf0D9FW3F9vWP5_kIDxLec'
 http = "http://202.45.139.84:10035/catalogs/fao/repositories/agrovoc"
 
